@@ -25,9 +25,12 @@ jobs:
         run: python export_excel_to_readme.py
 
       - name: Commit and Push Changes
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions@github.com"
+          git remote set-url origin https://$GITHUB_ACTOR:${{ secrets.PAT_TOKEN }}@github.com/mkornaszewska/restful-booker-test-cases.git
           git add README.md
           git commit -m "🔄 Auto-update README from Excel" || exit 0
           git push
