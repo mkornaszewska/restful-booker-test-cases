@@ -19,7 +19,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install Dependencies
-        run: pip install pandas tabulate
+        run: pip install pandas tabulate openpyxl
 
       - name: Run Script to Update README
         run: python export_excel_to_readme.py
