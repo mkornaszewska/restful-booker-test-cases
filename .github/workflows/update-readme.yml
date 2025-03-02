@@ -1,5 +1,8 @@
 name: Update README from Excel
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
