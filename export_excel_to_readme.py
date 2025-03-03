@@ -9,7 +9,7 @@ readme_path = "README.md"
 df_test_scenarios = pd.read_excel(test_scenarios_path, dtype=str)
 df_test_cases = pd.read_excel(test_cases_path, dtype=str)
 
-df_test_scenarios = test_scenarios_path.applymap(lambda x: str(x).replace("\n", "<br/>") if pd.notna(x) else "")
+df_test_scenarios = df_test_scenarios.applymap(lambda x: str(x).replace("\n", "<br/>") if pd.notna(x) else "")
 df_test_cases = df_test_cases.applymap(lambda x: str(x).replace("\n", "<br/>") if pd.notna(x) else "")
 
 markdown_test_scenarios = tabulate(df_test_scenarios.to_numpy().tolist(), headers=df_test_scenarios.columns.tolist(), tablefmt="pipe")
