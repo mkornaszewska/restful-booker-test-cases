@@ -23,8 +23,7 @@ for priority in priority_levels:
     df_filtered = df_test_scenarios[df_test_scenarios['Priority'] == priority]
 
     if not df_filtered.empty:
-        # Sort the test scenarios (you can change 'Test Scenario' to the actual column you want to sort by)
-        df_filtered = df_filtered.sort_values(by="Test Scenario")  # Change this column if needed
+        df_filtered = df_filtered.sort_values(by="Priority")  # Change this column if needed
 
         # Create markdown table
         priority_tables[priority] = f"## {priority}\n\n" + tabulate(df_filtered.to_numpy().tolist(), headers=df_filtered.columns.tolist(), tablefmt="pipe")
