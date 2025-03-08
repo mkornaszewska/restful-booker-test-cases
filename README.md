@@ -113,11 +113,11 @@ Test cases for Restful-Booker API
 <!-- TEST_SCENARIOS_END -->
 
 # Test Cases
-<!-- TEST_CASES_START -->
+
 
 | Test Case ID   | Summary                                                                                             | Preconditions                                      | Steps                                                                                                                     | Expected Result                                                                                                                  | Status   | Comments                                |
 |:---------------|:----------------------------------------------------------------------------------------------------|:---------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------|:---------|:----------------------------------------|
 | RBAPI_001      | Auth / Generate an authorization token                                                              | Valid username and password for Restful-Booker API | 1. Send API Request to the /auth endpoint.<br/> In the request, provide the username and password from the preconditions. | 1. Response status is 200 OK.<br/>A token is generated.                                                                          | PASS     |                                         |
 | RBAPI_002      | Auth / Verify that an authorization token cannot be generated when invalid credentials are provided |                                                    | 1. Send API Request to the /auth endpoint.</br>In the request, provide an invalid username and password.                  | ⚠️ Documentation update required.</br>👉 Rest API best practices</br> * Response status is 401 Unauthorized for an invalid token. | BLOCKED  | Currently, the response code is 200 OK. |
 
-<!-- TEST_CASES_END -->
+
