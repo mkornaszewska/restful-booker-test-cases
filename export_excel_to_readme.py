@@ -22,11 +22,9 @@ for priority in priority_levels:
     else:
         priority_tables[priority] = f"## {priority}\n\nNo test scenarios found for this priority."
 
-# Read existing README file
 with open(readme_path, "r", encoding="utf-8") as f:
     readme_content = f.read()
 
-# Update README with categorized test scenarios
 for priority, table in priority_tables.items():
     readme_content = re.sub(
         rf"(<!-- {priority}_TEST_SCENARIOS_START -->)(.*?)(<!-- {priority}_TEST_SCENARIOS_END -->)",
@@ -35,7 +33,6 @@ for priority, table in priority_tables.items():
         flags=re.DOTALL,
     )
 
-# Update README with test cases
 markdown_test_cases = tabulate(df_test_cases.to_numpy().tolist(), headers=df_test_cases.columns.tolist(), tablefmt="pipe")
 readme_content = re.sub(
     r"(<!-- TEST_CASES_START -->)(.*?)(<!-- TEST_CASES_END -->)",
@@ -44,7 +41,6 @@ readme_content = re.sub(
     flags=re.DOTALL,
 )
 
-# Write back the updated content
 with open(readme_path, "w", encoding="utf-8") as f:
     f.write(readme_content)
 
