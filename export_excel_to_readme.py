@@ -23,14 +23,14 @@ for priority in priority_levels:
     df_filtered = df_test_scenarios[df_test_scenarios['Priority'] == priority]
 
     if not df_filtered.empty:
-        df_filtered = df_filtered.sort_values(by="Priority")  # Change this column if needed
+        df_filtered = df_filtered.sort_values(by="Priority")  # Replace this column with correct sorting criteria
 
-        # Create markdown table
+        # Create markdown table for this priority
         priority_tables[priority] = f"## {priority}\n\n" + tabulate(df_filtered.to_numpy().tolist(), headers=df_filtered.columns.tolist(), tablefmt="pipe")
     else:
         priority_tables[priority] = f"## {priority}\n\nNo test scenarios found for this priority."
 
-# Read existing README file
+# Read the existing README file
 with open(readme_path, "r", encoding="utf-8") as f:
     readme_content = f.read()
 
